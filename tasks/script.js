@@ -47,3 +47,54 @@ function getCoupeNumber(number) {
 }
 
 console.log(getCoupeNumber(32))
+
+
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
+// Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов). Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд). Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов). Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
+// Пример:
+// getTimeFromMinutes(150) => "Это 2 часа и 30 минут"
+// getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
+// getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
+// getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
+
+function getTimeFromMinutes(minute) { 
+    let min;
+    let hour;
+    if(isNaN(minute) || !Number.isInteger(minute) || minute < 0) { 
+        return console.log('Ошибка, проверьте данные')
+    }
+    hour = Math.floor(minute / 60)
+    min = (minute % (hour * 60))
+    if(hour == 0) {
+        min = minute
+    }
+    if(hour == 1) {
+        return console.log(`Это ${hour} час и ${min} минут`)
+    } else if(hour == 2 || hour == 3 || hour == 4) {
+        return console.log(`Это ${hour} часа и ${min} минут`)
+    } else { 
+        return console.log(`Это ${hour} часов и ${min} минут`)
+    }
+}
+
+console.log(getTimeFromMinutes(55))
+
+
+
+// 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+// Пример:
+// findMaxNumber(1, 5, 6.6, 11); =>  11
+// findMaxNumber(1, 5, '6', '10');  =>  0
+
+function findMaxNumber(a, b, c, d) {
+    if(!a || !b || !c || !d) { 
+        return 0
+    }
+    if(typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number' || typeof d !== 'number') { 
+        return 0
+    }
+    const arr = [a, b, c, d]
+    return Math.max(...arr)
+}
+
+console.log(findMaxNumber(1, 5, 6.6, 11))
