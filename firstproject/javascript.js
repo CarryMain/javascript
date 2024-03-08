@@ -42,7 +42,7 @@ function writeYourGenres() {
 
 function rememberMyFilms() { 
     for(let i = 0; i < 2; i++) {
-        const a = prompt('One of the latest films?', '')
+        const a = prompt('One of the latest films?', '').trim()
         const b = prompt('What rating would you give him?', '')
     
         if(a != null && b != null && a != '' && b != '' && a.length < 50) {
