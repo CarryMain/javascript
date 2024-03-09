@@ -199,6 +199,34 @@ const personalPlanKirill = {
 console.log(personalPlanKirill.showAgeAndLangs())
 
 
-const lang = ['Ru', 'en']
+// 1) Напишите функцию showFamily, которая будет принимать в себя массив строк и возвращать сообщение в нужном формате.
+// showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
+// Имена подставляются автоматически из массива. Если массив пустой, то возвращается сообщение 'Семья пуста'
 
-console.log(lang.join(' ').toUpperCase())
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    if(arr.length == 0) { 
+        return 'Family is empty'
+    }
+
+    return `Family consists of: ${arr.join(' ')}`
+}
+
+console.log(showFamily(family))
+
+// 2) напишите функцию standardizeStrings, которая будет принимать в себя массив строк и будет выводить в консоль эти строки в нижнем регистре. 
+// Пример:
+// standardizeStrings(favoriteCities)  выведет в консоль
+// lisbon
+// rome
+// milan
+// dublin
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    return `${arr.join(' \n').toLowerCase()}`
+}
+
+console.log(standardizeStrings(favoriteCities))
